@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>718 Digital - Services & Tarifs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: #000000;
+        }
+        
+        .header {
+            background: rgba(0, 0, 0, 0.98);
+            color: white;
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid #666;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 3px;
+        }
+        
+        .logo span {
+            color: #666;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            padding: 150px 0 80px;
+            text-align: center;
+            border-bottom: 4px solid #666;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            color: #ffffff;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: #999;
+            font-weight: 600;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .services-section {
+            padding: 80px 0;
+        }
+        
+        .service-category {
+            margin-bottom: 80px;
+        }
+        
+        .category-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border-radius: 15px;
+            border-left: 6px solid #666;
+        }
+        
+        .category-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+        
+        .category-header p {
+            font-size: 1.1rem;
+            color: #a0a0a0;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        .pricing-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid #2d2d2d;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #666, #999);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: #666;
+            box-shadow: 0 20px 40px rgba(102, 102, 102, 0.3);
+        }
+        
+        .pricing-card.featured {
+            border: 3px solid #666;
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #666, #999);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+        
+        .pricing-card .description {
+            color: #a0a0a0;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+        
+        .price-note {
+            font-size: 0.9rem;
+            color: #999;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        
+        .features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #2d2d2d;
+            color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .features li i {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            width: 100%;
+            background: linear-gradient(135deg, #666, #999);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn:hover {
+            background: linear-gradient(135deg, #999, #666);
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(102, 102, 102, 0.4);
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+            padding: 80px 0;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #e0e0e0;
+        }
+        
+        .contact-btn {
+            background: linear-gradient(135deg, #666, #999);
+            color: #fff;
+            padding: 18px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.2rem;
+            display: inline-block;
+            transition: all 0.3s;
+            margin: 10px;
+        }
+        
+        .contact-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(102, 102, 102, 0.4);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .social-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-btn.whatsapp {
+            background: #25D366;
+        }
+        
+        .social-btn.facebook {
+            background: #1877F2;
+        }
+        
+        .social-btn.instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+        
+        .social-btn.tiktok {
+            background: #000000;
+            border: 2px solid #ffffff;
+        }
+        
+        .social-btn.linkedin {
+            background: #0A66C2;
+        }
+        
+        .social-btn.youtube {
+            background: #FF0000;
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Modal Formulaire */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border-radius: 20px;
+            max-width: 600px;
+            width: 100%;
+            padding: 3rem;
+            position: relative;
+            border: 2px solid #666;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: #999;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: color 0.3s;
+        }
+        
+        .modal-close:hover {
+            color: #fff;
+        }
+        
+        .modal-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .modal-header h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+        
+        .modal-header p {
+            color: #999;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #fff;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #444;
+            background: #0d0d0d;
+            color: #fff;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #666;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #666, #999);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 1rem;
+        }
+        
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #999, #666);
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(102, 102, 102, 0.5);
+        }
+        
+        .required {
+            color: #ff6b6b;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                padding: 2rem;
+            }
+        }
+        
+        .footer {
+            background: #000000;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 3px solid #666;
+        }
+        
+        .footer p {
+            color: #666;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">718<span>DIGITAL</span></div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Services & Tarifs</h1>
+            <p>LA CRÉATIVITÉ SANS LIMITES</p>
+        </div>
+    </section>
+
+    <div class="container services-section">
+        
+        <!-- DÉVELOPPEMENT WEB -->
+        <div class="service-category">
+            <div class="category-header">
+                <h2><i class="fas fa-code"></i> Développement Web</h2>
+                <p>Sites modernes et performants pour votre présence en ligne</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Site Vitrine</h3>
+                    <p class="description">Parfait pour présenter votre activité professionnellement</p>
+                    <div class="price">200 000 - 800 000 FCFA</div>
+                    <p class="price-note">À partir de</p>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> 5 à 10 pages</li>
+                        <li><i class="fas fa-check"></i> Design responsive</li>
+                        <li><i class="fas fa-check"></i> SEO de base</li>
+                        <li><i class="fas fa-check"></i> Formulaire de contact</li>
+                        <li><i class="fas fa-check"></i> Hébergement 1 an inclus</li>
+                    </ul>
+                    <button class="btn">Commander</button>
+                </div>
+
+                <div class="pricing-card featured">
+                    <span class="featured-badge">★ POPULAIRE</span>
+                    <h3>Site E-commerce</h3>
+                    <p class="description">Vendez en ligne avec une boutique professionnelle</p>
+                    <div class="price">1 000 000 - 3 000 000 FCFA</div>
+                    <p class="price-note">Selon complexité</p>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Jusqu'à 100 produits</li>
+                        <li><i class="fas fa-check"></i> Paiement sécurisé</li>
+                        <li><i class="fas fa-check"></i> Gestion stocks</li>
+                        <li><i class="fas fa-check"></i> Tableau de bord admin</li>
+                        <li><i class="fas fa-check"></i> Formation incluse</li>
+                    </ul>
+                    <button class="btn">Commander</button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Application Web</h3>
+                    <p class="description">Solutions sur mesure pour vos besoins spécifiques</p>
+                    <div class="price">3 000 000 FCFA+</div>
+                    <p class="price-note">Sur devis</p>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Développement custom</li>
+                        <li><i class="fas fa-check"></i> Base de données</li>
+                        <li><i class="fas fa-check"></i> Espace membre</li>
+                        <li><i class="fas fa-check"></i> API & intégrations</li>
+                        <li><i class="fas fa-check"></i> Maintenance incluse</li>
+                    </ul>
+                    <button class="btn">Demander un devis</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESIGN & UX/UI -->
+        <div class="service-category">
+            <div class="category-header">
+                <h2><i class="fas fa-palette"></i> Design & UX/UI</h2>
+                <p>Créez une identité visuelle forte et mémorable</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Logo & Identité</h3>
+                    <p class="description">Logo professionnel avec charte graphique</p>
+                    <div class="price">150 000 - 400 000 FCFA</div>
+                    <p class="price-note">Pack complet</p>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> 3 propositions</li>
+                        <li><i class="fas fa-check"></i> Révisions illimitées</li>
+                        <li><i class="fas fa-check"></i> Charte graphique</li>
+                        <li><i class="fas fa-check"></i> Fichiers sources</li>
+                        <li><i class="fas fa-check"></i> Tous formats</li>
+                    </ul>
+                    <button class="btn">Commander</button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Maquette UI/UX</h3>
+                    <p class="description">Design d'interface optimisé pour l'expérience utilisateur</p>
+                    <div class="price">300 000 - 1 000 000 FCFA</div>
+                    <p class="price-note">Par projet</p>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Recherche UX</li>
+                        <li><i class="fas fa-check"></i> Wireframes</li>
+                        <li><i class="fas fa-check"></i> Maquettes HD</li>
+                        <li><i class="fas fa-check"></i> Prototypage interactif</li>
+                        <li><i class="fas fa-check"></i> Guide de style</li>
+                    </ul>
+                    <button class="btn">Commander</button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Refonte Design</h3>
+                    <p class="description">Modernisez votre site existant</p>
+                    <div class="price">500 000 - 1 500 000 FCFA</div>
+                    <p class="price-note">Selon ampleur</p>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Audit design actuel</li>
+                        <li><i class="fas fa-check"></i> Nouveau design</li>
+                        <li><i class="fas fa-check"></i> Responsive adapté</li>
+                        <li><i class="fas fa-check"></i> Intégration web</li>
+                        <li><i class="fas fa-check"></i> Tests utilisateurs</li>
+                    </ul>
+                    <button class="btn">Commander</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONCEPTION PRINT -->
+        <div class="service-category">
+            <div class="category-header">
+                <h2><i class="fas fa-print"></i> Conception Print</h2>
+                <p>Supports imprimés de qualité professionnelle</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Cartes de Visite</h3>
+                    <p class="description">Impression incluse sur papier premium</p>
+                    <div class="price">40 000 - 80 000 FCFA</div>
+                    <p class="price-note">500 exemplaires</p>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Design personnalisé</li>
+                        <li><i class="fas fa-check"></i> Recto-verso</li>
+                        <li><i class="fas fa-check"></i> Papier 350g</li>
+                        <li><i class="fas fa-check"></i> Pelliculage mat/brillant</li>
+                        <li><i class="fas fa-check"></i> Livraison Abidjan</li>
+                    </ul>
+                    <button class="btn">Commander</button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Flyers & Brochures</h3>
+                    <p class="description">Communication impactante pour vos événements</p>
+                    <div class="price">100 000 - 300 000 FCFA</div>
+                    <p class="price-note">Design + Impression</p>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Format A5 ou A4</li>
+                        <li><i class="fas fa-check"></i> 1000 exemplaires</li>
+                        <li><i class="fas fa-check"></i> Design attractif</li>
+                        <li><i class="fas fa-check"></i> Papier couché</li>
+                        <li><i class="fas fa-check"></i> Relecture incluse</li>
+                    </ul>
+                    <button class="btn">Commander</button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Catalogue Produits</h3>
+                    <p class="description">Présentez vos produits avec élégance</p>
+                    <div class="price">300 000 - 1 200 000 FCFA</div>
+                    <p class="price-note">Selon pages</p>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Mise en page pro</li>
+                        <li><i class="fas fa-check"></i> Retouche photos</li>
+                        <li><i class="fas fa-check"></i> Format personnalisé</li>
+                        <li><i class="fas fa-check"></i> Reliure qualité</li>
+                        <li><i class="fas fa-check"></i> BAT avant impression</li>
+                    </ul>
+                    <button class="btn">Commander</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MARKETING DIGITAL -->
+        <div class="service-category">
+            <div class="category-header">
+                <h2><i class="fas fa-bullhorn"></i> Marketing Digital</h2>
+                <p>Développez votre visibilité et votre audience</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>SEO Starter</h3>
+                    <p class="description">Optimisation pour les moteurs de recherche</p>
+                    <div class="price">200 000 FCFA/mois</div>
+                    <p class="price-note">Engagement 3 mois</p>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Audit SEO complet</li>
+                        <li><i class="fas fa-check"></i> Optimisation on-page</li>
+                        <li><i class="fas fa-check"></i> Mots-clés stratégiques</li>
+                        <li><i class="fas fa-check"></i> Backlinks qualité</li>
+                        <li><i class="fas fa-check"></i> Rapport mensuel</li>
+                    </ul>
+                    <button class="btn">S'abonner</button>
+                </div>
+
+                <div class="pricing-card featured">
+                    <span class="featured-badge">★ RECOMMANDÉ</span>
+                    <h3>Social Media</h3>
+                    <p class="description">Gestion complète de vos réseaux sociaux</p>
+                    <div class="price">300 000 FCFA/mois</div>
+                    <p class="price-note">Tous réseaux</p>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> 20 posts/mois</li>
+                        <li><i class="fas fa-check"></i> Création graphique</li>
+                        <li><i class="fas fa-check"></i> Copywriting</li>
+                        <li><i class="fas fa-check"></i> Community management</li>
+                        <li><i class="fas fa-check"></i> Analytics détaillés</li>
+                    </ul>
+                    <button class="btn">S'abonner</button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Campagne Pub</h3>
+                    <p class="description">Publicité ciblée Google Ads & Facebook Ads</p>
+                    <div class="price">150 000 FCFA + Budget</div>
+                    <p class="price-note">Gestion campagne</p>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Stratégie publicitaire</li>
+                        <li><i class="fas fa-check"></i> Création des annonces</li>
+                        <li><i class="fas fa-check"></i> Ciblage précis</li>
+                        <li><i class="fas fa-check"></i> Optimisation A/B test</li>
+                        <li><i class="fas fa-check"></i> ROI tracking</li>
+                    </ul>
+                    <button class="btn">Commander</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- BRANDING DIGITAL -->
+        <div class="service-category">
+            <div class="category-header">
+                <h2><i class="fas fa-trademark"></i> Branding Digital</h2>
+                <p>Construisez une marque forte et cohérente</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Pack Startup</h3>
+                    <p class="description">Lancez votre marque avec les essentiels</p>
+                    <div class="price">750 000 FCFA</div>
+                    <p class="price-note">Package complet</p>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Nom & Logo</li>
+                        <li><i class="fas fa-check"></i> Charte graphique</li>
+                        <li><i class="fas fa-check"></i> Templates réseaux</li>
+                        <li><i class="fas fa-check"></i> Signature email</li>
+                        <li><i class="fas fa-check"></i> Kit de marque</li>
+                    </ul>
+                    <button class="btn">Commander</button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Stratégie de Marque</h3>
+                    <p class="description">Positionnement et stratégie complète</p>
+                    <div class="price">1 500 000 - 3 000 000 FCFA</div>
+                    <p class="price-note">Sur mesure</p>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Audit de marque</li>
+                        <li><i class="fas fa-check"></i> Positionnement</li>
+                        <li><i class="fas fa-check"></i> Storytelling</li>
+                        <li><i class="fas fa-check"></i> Ton de voix</li>
+                        <li><i class="fas fa-check"></i> Brand book complet</li>
+                    </ul>
+                    <button class="btn">Demander un devis</button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Refonte de Marque</h3>
+                    <p class="description">Modernisez votre identité de marque</p>
+                    <div class="price">2 000 000 FCFA+</div>
+                    <p class="price-note">Selon ampleur</p>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Analyse existant</li>
+                        <li><i class="fas fa-check"></i> Nouvelle identité</li>
+                        <li><i class="fas fa-check"></i> Migration visuelle</li>
+                        <li><i class="fas fa-check"></i> Supports mis à jour</li>
+                        <li><i class="fas fa-check"></i> Accompagnement</li>
+                    </ul>
+                    <button class="btn">Demander un devis</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOLUTIONS MOBILES -->
+        <div class="service-category">
+            <div class="category-header">
+                <h2><i class="fas fa-mobile-alt"></i> Solutions Mobiles</h2>
+                <p>Applications mobiles natives et multiplateformes</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Application Mobile Simple</h3>
+                    <p class="description">App iOS et Android basique</p>
+                    <div class="price">2 000 000 - 5 000 000 FCFA</div>
+                    <p class="price-note">Selon fonctionnalités</p>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Design natif</li>
+                        <li><i class="fas fa-check"></i> iOS & Android</li>
+                        <li><i class="fas fa-check"></i> Fonctions de base</li>
+                        <li><i class="fas fa-check"></i> Publication stores</li>
+                        <li><i class="fas fa-check"></i> 3 mois support</li>
+                    </ul>
+                    <button class="btn">Commander</button>
+                </div>
+
+                <div class="pricing-card featured">
+                    <span class="featured-badge">★ MEILLEUR CHOIX</span>
+                    <h3>PWA Progressive Web App</h3>
+                    <p class="description">Alternative économique aux apps natives</p>
+                    <div class="price">1 200 000 - 3 000 000 FCFA</div>
+                    <p class="price-note">Cross-platform</p>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Fonctionne hors ligne</li>
+                        <li><i class="fas fa-check"></i> Notifications push</li>
+                        <li><i class="fas fa-check"></i> Ajout écran accueil</li>
+                        <li><i class="fas fa-check"></i> Performance optimale</li>
+                        <li><i class="fas fa-check"></i> Moins cher qu'app native</li>
+                    </ul>
+                    <button class="btn">Commander</button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Application Complexe</h3>
+                    <p class="description">Solution avancée avec backend</p>
+                    <div class="price">6 000 000 FCFA+</div>
+                    <p class="price-note">Sur devis</p>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Architecture complète</li>
+                        <li><i class="fas fa-check"></i> Backend & API</li>
+                        <li><i class="fas fa-check"></i> Base de données</li>
+                        <li><i class="fas fa-check"></i> Fonctions avancées</li>
+                        <li><i class="fas fa-check"></i> Maintenance 1 an</li>
+                    </ul>
+                    <button class="btn">Demander un devis</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Prêt à Démarrer Votre Projet ?</h2>
+            <p>Contactez-nous pour un devis personnalisé et gratuit</p>
+            
+            <div style="margin: 2rem 0;">
+                <a href="https://wa.me/225002250576852723" class="contact-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="tel:+2250566277354" class="contact-btn">
+                    <i class="fas fa-phone"></i> Appeler
+                </a>
+                <a href="mailto:718digital1@gmail.com" class="contact-btn">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+            </div>
+            
+            <p style="margin: 1.5rem 0; font-size: 1.1rem; color: #999;">
+                📞 05 66 27 73 54 | 💬 Réponse sous 24h
+            </p>
+            
+            <p style="font-size: 1.2rem; margin-top: 3rem; margin-bottom: 1rem; color: #fff;">
+                Suivez-nous sur les réseaux sociaux
+            </p>
+            
+            <div class="social-links">
+                <a href="https://wa.me/225002250576852723" class="social-btn whatsapp" target="_blank" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#" class="social-btn facebook" target="_blank" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-btn instagram" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-btn tiktok" target="_blank" title="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="#" class="social-btn linkedin" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="social-btn youtube" target="_blank" title="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 718 Digital - La Créativité Sans Limites</p>
+        </div>
+    </footer>
+
+    <!-- Modal Formulaire -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <h2 id="modalTitle">Commander un Service</h2>
+                <p id="modalSubtitle">Remplissez le formulaire ci-dessous</p>
+            </div>
+            
+            <form id="orderForm" onsubmit="submitForm(event)">
+                <!-- Informations de base -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nom complet <span class="required">*</span></label>
+                        <input type="text" name="nom" required placeholder="Votre nom">
+                    </div>
+                    <div class="form-group">
+                        <label>Entreprise / Organisation</label>
+                        <input type="text" name="entreprise" placeholder="Nom de votre entreprise">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Email <span class="required">*</span></label>
+                        <input type="email" name="email" required placeholder="votre@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Téléphone <span class="required">*</span></label>
+                        <input type="tel" name="telephone" required placeholder="+225 XX XX XX XX XX">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Service sélectionné <span class="required">*</span></label>
+                    <input type="text" id="serviceSelected" name="service" readonly style="background: #1a1a1a;">
+                </div>
+                
+                <!-- Champs dynamiques selon le service -->
+                <div id="dynamicFields"></div>
+                
+                <div class="form-group">
+                    <label>Budget estimé</label>
+                    <select name="budget">
+                        <option value="">Sélectionnez votre budget</option>
+                        <option value="moins-500k">Moins de 500 000 FCFA</option>
+                        <option value="500k-1m">500 000 - 1 000 000 FCFA</option>
+                        <option value="1m-2m">1 000 000 - 2 000 000 FCFA</option>
+                        <option value="2m-5m">2 000 000 - 5 000 000 FCFA</option>
+                        <option value="plus-5m">Plus de 5 000 000 FCFA</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Délai souhaité</label>
+                    <select name="delai">
+                        <option value="">Sélectionnez un délai</option>
+                        <option value="urgent">Urgent (moins d'1 semaine)</option>
+                        <option value="1-2semaines">1 à 2 semaines</option>
+                        <option value="2-4semaines">2 à 4 semaines</option>
+                        <option value="1-2mois">1 à 2 mois</option>
+                        <option value="flexible">Flexible</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Détails de votre projet <span class="required">*</span></label>
+                    <textarea name="details" required placeholder="Décrivez votre projet en détails..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Comment nous avez-vous connu ?</label>
+                    <select name="source">
+                        <option value="">Sélectionnez</option>
+                        <option value="google">Google / Recherche web</option>
+                        <option value="facebook">Facebook</option>
+                        <option value="instagram">Instagram</option>
+                        <option value="linkedin">LinkedIn</option>
+                        <option value="bouche-oreille">Bouche-à-oreille</option>
+                        <option value="autre">Autre</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Envoyer la demande
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let currentService = '';
+        
+        // Ouvrir le modal avec le service sélectionné
+        function openModal(serviceName, serviceCategory) {
+            currentService = serviceName;
+            document.getElementById('orderModal').classList.add('active');
+            document.getElementById('modalTitle').textContent = 'Commander: ' + serviceName;
+            document.getElementById('serviceSelected').value = serviceName;
+            
+            // Générer les champs dynamiques selon la catégorie
+            generateDynamicFields(serviceCategory);
+            
+            // Bloquer le scroll du body
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Fermer le modal
+        function closeModal() {
+            document.getElementById('orderModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+            document.getElementById('orderForm').reset();
+        }
+        
+        // Fermer en cliquant à l'extérieur
+        document.getElementById('orderModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // Générer les champs dynamiques selon le type de service
+        function generateDynamicFields(category) {
+            const dynamicFields = document.getElementById('dynamicFields');
+            let fieldsHTML = '';
+            
+            switch(category) {
+                case 'web':
+                    fieldsHTML = `
+                        <div class="form-group">
+                            <label>Type de site souhaité</label>
+                            <select name="type_site">
+                                <option value="">Sélectionnez</option>
+                                <option value="vitrine">Site vitrine</option>
+                                <option value="ecommerce">E-commerce</option>
+                                <option value="blog">Blog</option>
+                                <option value="portfolio">Portfolio</option>
+                                <option value="custom">Application web sur mesure</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Avez-vous un nom de domaine ?</label>
+                            <select name="domaine">
+                                <option value="non">Non, j'ai besoin d'aide</option>
+                                <option value="oui">Oui, je l'ai déjà</option>
+                                <option value="acheter">Je veux en acheter un</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Avez-vous du contenu (textes, images) ?</label>
+                            <select name="contenu">
+                                <option value="non">Non, j'ai besoin d'aide</option>
+                                <option value="partiel">Partiellement</option>
+                                <option value="oui">Oui, tout est prêt</option>
+                            </select>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'design':
+                    fieldsHTML = `
+                        <div class="form-group">
+                            <label>Type de design</label>
+                            <select name="type_design">
+                                <option value="">Sélectionnez</option>
+                                <option value="logo">Logo uniquement</option>
+                                <option value="identite">Identité complète</option>
+                                <option value="redesign">Refonte/Modernisation</option>
+                                <option value="ui-ux">UI/UX Design</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Style préféré</label>
+                            <select name="style">
+                                <option value="">Sélectionnez</option>
+                                <option value="moderne">Moderne et minimaliste</option>
+                                <option value="classique">Classique et élégant</option>
+                                <option value="dynamique">Dynamique et coloré</option>
+                                <option value="professionnel">Professionnel et sobre</option>
+                                <option value="creatif">Créatif et original</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Couleurs préférées (si applicable)</label>
+                            <input type="text" name="couleurs" placeholder="Ex: Bleu, blanc, gris">
+                        </div>
+                    `;
+                    break;
+                    
+                case 'print':
+                    fieldsHTML = `
+                        <div class="form-group">
+                            <label>Type de support</label>
+                            <select name="type_print">
+                                <option value="">Sélectionnez</option>
+                                <option value="cartes">Cartes de visite</option>
+                                <option value="flyers">Flyers</option>
+                                <option value="brochures">Brochures</option>
+                                <option value="catalogue">Catalogue</option>
+                                <option value="affiche">Affiches</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Quantité souhaitée</label>
+                            <input type="number" name="quantite" placeholder="Ex: 500" min="1">
+                        </div>
+                        <div class="form-group">
+                            <label>Format souhaité</label>
+                            <select name="format">
+                                <option value="">Sélectionnez</option>
+                                <option value="a6">A6 (10.5 x 14.8 cm)</option>
+                                <option value="a5">A5 (14.8 x 21 cm)</option>
+                                <option value="a4">A4 (21 x 29.7 cm)</option>
+                                <option value="a3">A3 (29.7 x 42 cm)</option>
+                                <option value="custom">Format personnalisé</option>
+                            </select>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'marketing':
+                    fieldsHTML = `
+                        <div class="form-group">
+                            <label>Type de service marketing</label>
+                            <select name="type_marketing">
+                                <option value="">Sélectionnez</option>
+                                <option value="seo">Référencement SEO</option>
+                                <option value="social">Gestion réseaux sociaux</option>
+                                <option value="pub">Campagnes publicitaires</option>
+                                <option value="content">Création de contenu</option>
+                                <option value="global">Stratégie globale</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Réseaux sociaux concernés</label>
+                            <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+                                <label style="display: flex; align-items: center; gap: 5px;">
+                                    <input type="checkbox" name="reseaux" value="facebook"> Facebook
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 5px;">
+                                    <input type="checkbox" name="reseaux" value="instagram"> Instagram
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 5px;">
+                                    <input type="checkbox" name="reseaux" value="linkedin"> LinkedIn
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 5px;">
+                                    <input type="checkbox" name="reseaux" value="tiktok"> TikTok
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 5px;">
+                                    <input type="checkbox" name="reseaux" value="youtube"> YouTube
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Objectif principal</label>
+                            <select name="objectif">
+                                <option value="">Sélectionnez</option>
+                                <option value="notoriete">Augmenter la notoriété</option>
+                                <option value="trafic">Générer du trafic</option>
+                                <option value="leads">Obtenir des leads</option>
+                                <option value="ventes">Augmenter les ventes</option>
+                                <option value="engagement">Améliorer l'engagement</option>
+                            </select>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'branding':
+                    fieldsHTML = `
+                        <div class="form-group">
+                            <label>Type de branding</label>
+                            <select name="type_branding">
+                                <option value="">Sélectionnez</option>
+                                <option value="nouveau">Nouvelle marque</option>
+                                <option value="refonte">Refonte de marque</option>
+                                <option value="repositionnement">Repositionnement</option>
+                                <option value="extension">Extension de marque</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Secteur d'activité</label>
+                            <input type="text" name="secteur" placeholder="Ex: Tech, Mode, Restauration...">
+                        </div>
+                        <div class="form-group">
+                            <label>Valeurs de votre marque</label>
+                            <textarea name="valeurs" placeholder="Quelles valeurs souhaitez-vous transmettre ?" rows="3"></textarea>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'mobile':
+                    fieldsHTML = `
+                        <div class="form-group">
+                            <label>Type d'application</label>
+                            <select name="type_app">
+                                <option value="">Sélectionnez</option>
+                                <option value="native">Application native (iOS + Android)</option>
+                                <option value="pwa">Progressive Web App (PWA)</option>
+                                <option value="hybride">Application hybride</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Fonctionnalités principales souhaitées</label>
+                            <textarea name="fonctionnalites" placeholder="Ex: Authentification, paiement, géolocalisation..." rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Avez-vous une maquette ou un prototype ?</label>
+                            <select name="maquette">
+                                <option value="non">Non</option>
+                                <option value="ebauche">J'ai une ébauche</option>
+                                <option value="oui">Oui, complète</option>
+                            </select>
+                        </div>
+                    `;
+                    break;
+                    
+                default:
+                    fieldsHTML = '';
+            }
+            
+            dynamicFields.innerHTML = fieldsHTML;
+        }
+        
+        // Soumettre le formulaire
+        function submitForm(e) {
+            e.preventDefault();
+            
+            // Récupérer toutes les données du formulaire
+            const formData = new FormData(e.target);
+            const data = {};
+            
+            for (let [key, value] of formData.entries()) {
+                if (data[key]) {
+                    if (Array.isArray(data[key])) {
+                        data[key].push(value);
+                    } else {
+                        data[key] = [data[key], value];
+                    }
+                } else {
+                    data[key] = value;
+                }
+            }
+            
+            // Construire le message WhatsApp
+            let message = `🎯 *NOUVELLE COMMANDE - 718 DIGITAL*\n\n`;
+            message += `📋 *Service:* ${data.service}\n\n`;
+            message += `👤 *CLIENT*\n`;
+            message += `Nom: ${data.nom}\n`;
+            if (data.entreprise) message += `Entreprise: ${data.entreprise}\n`;
+            message += `Email: ${data.email}\n`;
+            message += `Téléphone: ${data.telephone}\n\n`;
+            
+            if (data.budget) message += `💰 Budget: ${data.budget}\n`;
+            if (data.delai) message += `⏱️ Délai: ${data.delai}\n\n`;
+            
+            message += `📝 *DÉTAILS DU PROJET*\n${data.details}\n\n`;
+            
+            // Ajouter les champs spécifiques
+            Object.keys(data).forEach(key => {
+                if (!['nom', 'entreprise', 'email', 'telephone', 'service', 'budget', 'delai', 'details', 'source'].includes(key)) {
+                    const label = key.replace(/_/g, ' ').toUpperCase();
+                    message += `${label}: ${data[key]}\n`;
+                }
+            });
+            
+            if (data.source) message += `\n📢 Source: ${data.source}`;
+            
+            // Encoder le message pour WhatsApp
+            const whatsappMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/225002250576852723?text=${whatsappMessage}`;
+            
+            // Ouvrir WhatsApp
+            window.open(whatsappURL, '_blank');
+            
+            // Afficher un message de confirmation
+            alert('✅ Merci ! Vous allez être redirigé vers WhatsApp pour finaliser votre demande.');
+            
+            // Fermer le modal
+            closeModal();
+        }
+        
+        // Ajouter les événements aux boutons
+        document.addEventListener('DOMContentLoaded', function() {
+            // Attacher les événements aux boutons "Commander"
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                if (button.textContent.includes('Commander')) {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const card = this.closest('.pricing-card');
+                        const serviceName = card.querySelector('h3').textContent;
+                        const section = this.closest('.service-category');
+                        
+                        let category = 'general';
+                        if (section.querySelector('h2').textContent.includes('Développement Web')) {
+                            category = 'web';
+                        } else if (section.querySelector('h2').textContent.includes('Design')) {
+                            category = 'design';
+                        } else if (section.querySelector('h2').textContent.includes('Print')) {
+                            category = 'print';
+                        } else if (section.querySelector('h2').textContent.includes('Marketing')) {
+                            category = 'marketing';
+                        } else if (section.querySelector('h2').textContent.includes('Branding')) {
+                            category = 'branding';
+                        } else if (section.querySelector('h2').textContent.includes('Mobiles')) {
+                            category = 'mobile';
+                        }
+                        
+                        openModal(serviceName, category);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
